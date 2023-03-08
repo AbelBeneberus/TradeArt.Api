@@ -1,6 +1,6 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-ARG PORT=5000	
+ARG PORT=5000:5000	
 WORKDIR /app
 EXPOSE $PORT
 
