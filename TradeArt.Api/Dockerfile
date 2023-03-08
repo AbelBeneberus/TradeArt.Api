@@ -1,8 +1,11 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+ARG PORT=5000	
 WORKDIR /app
-EXPOSE 80
+EXPOSE $PORT
+
+ENV ASPNETCORE_URLS http://*:$PORT
+ENV ASPNETCORE_ENVIRONMENT=Development
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
